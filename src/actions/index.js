@@ -1,25 +1,31 @@
 import * as Actions from "../constants/actions";
 
-export fetchArtist = (artist) => ({
+export const setLoading = (status) => ({
+	type: Actions.SET_LOADING,
+	status
+});
+
+export const fetchArtist = (artist) => ({
   type: Actions.FETCH_ARTIST,
   artist
 });
 
-export fetchArtistSuccess = (data) => ({
+export const fetchArtistSuccess = (data) => ({
   type: Actions.FETCH_ARTIST_SUCCESS,
   data
 });
 
-export fetchArtistEvents = (artist) => ({
+export const fetchArtistEvents = (artist) => ({
   type: Actions.FETCH_ARTIST_EVENTS,
   artist
 });
 
-export fetchArtistEventsSuccess = (data) => ({
+export const fetchArtistEventsSuccess = (data) => ({
   type: Actions.FETCH_ARTIST_EVENTS_SUCCESS,
   data
 });
 
-export apiError = () => ({
-  type: Action.THROW_API_ERROR,
+export const apiError = (status) => ({
+  type: Actions.THROW_API_ERROR,
+  status
 });

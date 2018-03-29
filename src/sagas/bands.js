@@ -1,24 +1,27 @@
-import { takeEvery, call, put, select } from "redux-saga/effects";
+import { takeEvery, call, put } from "redux-saga/effects";
 import * as Actions from "../constants/actions";
 import * as API from "../api";
+import { setLoading, fetchArtistSuccess, fetchArtistEventsSuccess, apiError } from "../actions";
 
-function *fetchArtist() {
+function *fetchArtist({ artist }) {
   try {
-    const response = yield call(API.fetchArtistApi);
+    const response = yield call(API.fetchArtistApi, artist);
     yield put(fetchArtistSuccess(response));
+    yield put(setLoading(false));
   } catch (e) {
-    const { message } = e;
-    yield put(throwError(message));
+    yield put(setLoading(false));
+    yield put(apiError(true));
   }
 }
 
-function *fetchArtistEvents() {
+function *fetchArtistEvents({ artist }) {
   try {
-    const response = yield call(API.fetchArtistEventsApi);
-    yield put(fetchConfigSuccess(response));
+    const response = yield call(API.fetchArtistEventsApi, artist);
+    yield put(fetchArtistEventsSuccess(response));
+    yield put(setLoading(false));
   } catch (e) {
-    const { message } = e;
-    yield put(throwError(message));
+    yield put(setLoading(false));
+    yield put(apiError(true));
   }
 }
 
