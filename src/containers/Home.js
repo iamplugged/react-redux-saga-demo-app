@@ -68,7 +68,7 @@ Home.propTypes = {
   artist: PropTypes.object,
   events: PropTypes.array,
   loading: PropTypes.bool,
-  error: PropTypes.string
+  error: PropTypes.bool
 };
 
 const mapStateToProps = ({ data, uiState }) => ({

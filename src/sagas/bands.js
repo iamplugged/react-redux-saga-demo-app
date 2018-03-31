@@ -7,7 +7,6 @@ function *fetchArtist({ artist }) {
   try {
     const response = yield call(API.fetchArtistApi, artist);
     yield put(fetchArtistSuccess(response));
-    yield put(setLoading(false));
   } catch (e) {
     yield put(setLoading(false));
     yield put(apiError(true));
