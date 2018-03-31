@@ -3,19 +3,17 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { Route, Router, browserHistory } from "react-router";
 
-import "./index.css";
 import Home from "./containers/Home";
 
 import store from "./stores/";
-//import { saveItems } from "./localStorage";
+import { saveItems } from "./localStorage";
 
-/*
+
 store.subscribe(() => {
   saveItems(store.getState({
-    items: store.getState().data.items
+    data: store.getState().data
   }));
 });
-*/
 
 // Render the router
 ReactDOM.render((
@@ -27,4 +25,3 @@ ReactDOM.render((
   </Provider>
 ), document.getElementById("root"));
 
-//registerServiceWorker();

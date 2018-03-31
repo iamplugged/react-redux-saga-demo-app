@@ -19,7 +19,6 @@ class Search extends Component {
 
   handleChange() {
     const searchTerm = this.searchInput.value;
-    console.log("searchTerm", searchTerm);
     if (searchTerm) {
       browserHistory.push(`/artists/${searchTerm}`);
     }

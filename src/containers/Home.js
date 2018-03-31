@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import "../styles/index.css";
@@ -62,6 +63,13 @@ class Home extends Component {
     );
   }
 }
+
+Home.propTypes = {
+  artist: PropTypes.object,
+  events: PropTypes.array,
+  loading: PropTypes.bool,
+  error: PropTypes.string
+};
 
 const mapStateToProps = ({ data, uiState }) => ({
   artist: data.artist,
